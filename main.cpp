@@ -3,12 +3,12 @@
 #include <string>
 #include <memory>
 
-
+#include "./TextProgram/textquery.cpp"
 
 
 
 int main() {
-  ifstream input("test.txt");
+  std::ifstream input("test.txt");
 
 
   input.close();
