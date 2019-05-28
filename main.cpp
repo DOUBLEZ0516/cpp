@@ -8,9 +8,8 @@
 
 
 int main() {
-  std::ifstream input("test.txt");
-
-
+  std::ifstream input("test.rtf");
+  runQueries(input);
   input.close();
 
   return 0;
