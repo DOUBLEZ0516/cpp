@@ -3,7 +3,7 @@
 #include <string>
 #include <memory>
 
-
+#include "queryclass/qclass.h"
 
 using namespace std;
 
