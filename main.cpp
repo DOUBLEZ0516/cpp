@@ -3,15 +3,15 @@
 #include <string>
 #include <memory>
 
-#include "queryclass/qclass.h"
+#include "queryclass/qclass.cpp"
 
-using namespace std;
+// using namespace std;
 
 
 int main() {
-  ifstream input("test.txt");
+  std::ifstream input("test.rtf");
 
-
+  runQueries(input); 
   input.close();
 
   return 0;
