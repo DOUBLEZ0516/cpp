@@ -18,7 +18,7 @@
 definition of query functions from text query
 */
 class QueryResult {
-friend std::ostream& print(const QueryResult&, std::ostream&);
+friend std::ostream& print(std::ostream&, const QueryResult&);
 public:
 	using line_no = std::vector<std::string>::size_type;
 
@@ -63,7 +63,7 @@ private:
 };
 
 
-std::ostream& print(const QueryResult&, std::ostream&);
+std::ostream& print(std::ostream&, const QueryResult&);
 
 
 /*
@@ -198,14 +198,16 @@ Query operator~ (const Query &operand) {
 }
 
 
-Query operator& (const Query &lhs, Query &rhs) {
+Query operator& (const Query &lhs, const Query &rhs) {
 	return std::shared_ptr<Query_base> (new AndQuery(lhs, rhs));
 }
 
 
-Query operator| (const Query &lhs, Query &rhs) {
+Query operator| (const Query &lhs, const Query &rhs) {
 	return std::shared_ptr<Query_base> (new OrQuery(lhs, rhs)); 
 }
+
+
 
 
 

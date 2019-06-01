@@ -66,8 +66,7 @@ std::ostream &print(std::ostream &os, const QueryResult &qr) {
 
 
 void runQueries(std::ifstream& infile) {
-	TextQuery tq1(infile);
-	TextQuery tq2(infile);
+	TextQuery tq(infile);
 
 	while(true) {
 		std::cout << "Enter words to look for or q to quit" << std::endl;
@@ -76,8 +75,14 @@ void runQueries(std::ifstream& infile) {
 		if(!(std::cin >> s) || s == "q") break;
 		else {
 
-			QueryResult result = (Query("Alice")|Query("Emma")).eval(tq1);
-			
+			QueryResult result = (Query("Alice")| Query("hair")).eval(tq);
+			print(std::cout, result) << std::endl;
+
+			result = (~Query("Alice")).eval(tq);
+			print(std::cout, result) << std::endl;
+
+			result = (Query("fiery") & Query("bird") | Query("wind")).eval(tq);
+			print(std::cout, result) << std::endl;
 		}
 	}
 }
