@@ -14,7 +14,23 @@ double (better) or float
 
 #### 2.3
 ```c++
-unsigned u=10, u2 = 42;
+unsigned u=10, u2 = 42; // 32 bits in compiler, 8 bits for description
 auto ans1 = u2 - u; // ans1 = 32;
-auto ans2 = u - u2; // ans2 = 
+
+// 10: 0000 1010
+// 42: 0010 1010
+// 10 - 42:
+// step1:
+// 0000 0000 - 0010 0000
+// step2: lhs-1, rhs -1
+// 1111 1111 - 0001 1111
+// step3:
+// result: 1110 0000
+auto ans2 = u - u2; // ans2 = 4294967264；
+
+int i = 10, i2 = 42;
+int a1 = 32; // i2 - i
+int a2 = -32; // i-i2
+int a3 = 0; // i-u
+int a4 = 0; // u-i
 ```
