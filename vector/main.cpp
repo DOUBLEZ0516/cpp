@@ -36,5 +36,10 @@ int main() {
   for (auto num : t)
     std::cout << num << " ";
   std::cout << std::endl;
+
+  MyVector<int> t2{2, 5};
+  for (auto num : t2)
+    std::cout << num << " ";
+
   return 0;
 }
